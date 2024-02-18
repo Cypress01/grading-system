@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grading System</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/bootstrap.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="grade-div">
+            <div class="sub-body">
+                <div class="rounded-5 w-75 m-auto mt-5 mb-3 border border-success p-3">
+                    <h6 class="text-center text-success fw-bold">Welcome to My Grading Page!</h6>
+                </div>
+                <p class="text-center p-2 text-success mx-4">Kindly enter your score below and click on the check button to check your grade.
+                </p>
+                <hr>
+
+                <div class="input-group m-auto w-75 pt-3">
+                    <div class="input-group mb-3">
+                      <input type="number" class="form-control" placeholder="Enter your score..." aria-label="Recipient's username" aria-describedby="button-addon2" id="userScore">
+                      <button class="btn btn-outline-success" type="button" id="button-addon2" onclick="checkGrade()">Check</button>
+                    </div>
+                </div>
+                <input type="text" class="form-control text-success text-center w-50 mx-auto mb-5" disabled value="See Grade Here" aria-label="Your Result" aria-describedby="button-addon2" id="gradeResult">
+
+                <footer class="w-100 mt-5">
+                    <p class="text-success text-center">
+                        Copyright&copy Raiden_Claude
+                    </p>
+                </footer>
+            </div>
+        </div>
+
+        <script>
+            function checkGrade() {
+                var scoreOfUser = userScore.value
+                var songFail = new Audio ("failure.mp3")
+                var songFail2 = new Audio ("e-shock-you.mp3")
+                var songPass = new Audio ("end-up.mp3")
+                var songExcellent = new Audio ("excellent.mp3")
+
+                if (scoreOfUser=="") {
+                    gradeResult.value = "No Input"
+                }
+                else if(scoreOfUser>=0 && scoreOfUser<40){
+                    gradeResult.value = "F - Fail 🥴"
+                    songFail2.play()
+                    songFail.play()
+                }
+                else if(scoreOfUser>=40 && scoreOfUser<45){
+                    gradeResult.value = "E - Pass 😔"
+                    songPass.play()
+                }
+                else if(scoreOfUser>=45 && scoreOfUser<50){
+                    gradeResult.value = "D - Average 😬"
+                }
+                else if(scoreOfUser>=50 && scoreOfUser<60){
+                    gradeResult.value = "C - Credit 🤔"
+                }
+                else if(scoreOfUser>=60 && scoreOfUser<70){
+                    gradeResult.value = "B - Good 🙂"
+                }
+                else if(scoreOfUser>=70 && scoreOfUser<100){
+                    gradeResult.value = "A - Excellent 😀"
+                    songExcellent.play()
+                }
+                else if(scoreOfUser<0 || scoreOfUser>100){
+                    gradeResult.value = "Out Of Range"
+                }
+            }
+        </script>
+    </body>
+</html>

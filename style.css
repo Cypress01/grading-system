@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(225deg, #274c46, #20403b);
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.grade-div {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.grade-div .sub-body {
+    /* margin: 50px; */
+    height: 500px;
+    width: 300px;
+    /* width: 80%;  */
+    border-radius: 45px;
+    background: linear-gradient(225deg, #274c46, #20403b);
+    box-shadow:  -35px 35px 62px #142824, 35px -35px 62px #34665e;
+}
